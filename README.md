@@ -1,6 +1,32 @@
 # Ympfilter
 
-TODO: Write a gem description
+Ympfilter means 'Yet another xmpfilter implementation'.
+Xmpfilter is in a gem '[rcodetools](http://rubygems.org/gems/rcodetools)'.
+
+It will be able to inject evaluated variable to the (hash rocket) comment.
+
+For Example: foo.rb
+
+```ruby
+:a                              # =>
+'foo'                           # =>
+['a','b','c'].each do |e|
+  e                             # =>
+end
+puts 'hello'                    # =>
+```
+
+`$ xmpfilter foo.rb`
+
+```ruby
+:a                              # => :a
+'foo'                           # => "foo"
+['a','b','c'].each do |e|
+  e                             # => "a", "b", "c"
+end
+puts 'hello'                    # => nil
+# >> hello
+```
 
 ## Installation
 
